@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import Content from "./Content";
+
 // const gifts = ["cpi i9", "ram 32gb rgb", "rbg keyboard"];
 
 const courses = [
@@ -66,6 +68,12 @@ function App() {
     setJob("");
   };
 
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => {
+    setShow(!show);
+  };
+
   return (
     // <div className="App">
     //   <div style={{ padding: 32 }}>
@@ -107,6 +115,11 @@ function App() {
           <li key={index}>{job}</li>
         ))}
       </ul>
+
+      <hr />
+
+      <button onClick={handleShow}>Show</button>
+      {show && <Content />}
     </div>
   );
 }
